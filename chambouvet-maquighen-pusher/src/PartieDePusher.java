@@ -1,4 +1,9 @@
 
+/**
+ * @author chamboug
+ * Classe PartieDePusher
+ */
+
 public class PartieDePusher
 {
 	/**
@@ -12,9 +17,9 @@ public class PartieDePusher
 	 * avec une map initalisée
 	 * @param map2 
 	 */
-	public PartieDePusher(Map map2)
+	public PartieDePusher(Map p_map)
 	{
-		this.map = map2;
+		this.map = p_map;
 	}
 	
 	
