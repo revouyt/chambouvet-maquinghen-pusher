@@ -8,7 +8,7 @@ public class GameLauncher {
 	public static void main(String[] args) {
 
 		Map map = new Map();
-		new PartieDePusher(map).jouer();
+		new GameOfPusher(map).jouer();
 	}
 
 }
