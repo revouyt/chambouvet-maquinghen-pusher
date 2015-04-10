@@ -1,33 +1,34 @@
 
 /**
+ * This class represents a grid where a Pusher game is played
  * @author chamboug
- * Classe Map
+ * 
  */
 public class Map {
 	
 	/**
-	 * Déclaration de l'attribut du nombre de colonnes de la map
+	 * number of columns 
 	 */
-	private final int nombreDeColonnes;
+	private final int numberOfColumns;
 	/**
-	 * Déclaration de l'attribut du nombre de lignes
+	 *number of rows 
 	 */
-	private final int nombreDeLignes;
+	private final int numberOfRows;
 	
 	/**
-	 * Déclaration du tableau de cases qui constitue la map
+	 *  Square array which compose the map
 	 */
 	private final Case[][] map;
 	
 	/**
-	 * Constructeur de map, qui construit pour l'instant une map unique
+	 * Unique map builder
 	 */
 	public Map()
 	{
-		nombreDeColonnes = 8;
-		nombreDeLignes = 9;
+		numberOfColumns = 8;
+		numberOfRows = 9;
 		
-		map = new Case[nombreDeLignes][nombreDeColonnes];
+		map = new Case[numberOfRows][numberOfColumns];
 		
 		
 	}
