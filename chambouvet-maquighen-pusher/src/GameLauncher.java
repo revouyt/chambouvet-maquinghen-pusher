@@ -1,9 +1,9 @@
 
 /**
  * @author chamboug
- * Classe application du projet
+ * Project application class
  */
-public class LanceurDePartiedePusher {
+public class GameLauncher {
 
 	public static void main(String[] args) {
 
