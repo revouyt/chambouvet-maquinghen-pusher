@@ -1,7 +1,8 @@
 
 /**
- * @author chamboug
  * Project application class
+ * @author chamboug
+ *  
  */
 public class GameLauncher {
 

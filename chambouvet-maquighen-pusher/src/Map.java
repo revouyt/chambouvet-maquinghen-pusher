@@ -18,7 +18,7 @@ public class Map {
 	/**
 	 *  Square array which compose the map
 	 */
-	private final Case[][] map;
+	private final Square[][] map;
 	
 	/**
 	 * Unique map builder
@@ -28,7 +28,7 @@ public class Map {
 		numberOfColumns = 8;
 		numberOfRows = 9;
 		
-		map = new Case[numberOfRows][numberOfColumns];
+		map = new Square[numberOfRows][numberOfColumns];
 		
 		
 	}
