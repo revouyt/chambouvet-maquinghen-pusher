@@ -20,6 +20,9 @@ public class Map {
 	 */
 	private final Square[][] map;
 	
+	
+	private Position playerPosition;
+	
 	/**
 	 * Unique map builder
 	 * @param fixedContentOfTheMap map content
@@ -30,11 +33,13 @@ public class Map {
 		this.numberOfColumns = squares[0].length;
 		this.map = squares;
 		
+		this.playerPosition = this.searchPlayerPosition();
+		
 	}
 
 	
 	
-	public Position getPlayerPosition() 
+	private Position searchPlayerPosition() 
 	{
 
 		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
@@ -49,6 +54,17 @@ public class Map {
 		return null;
 		
 	}
+	
+	public Position getPlayerPosition()
+	{
+		return this.playerPosition;
+	}
+	
+	public void setPlayerPosition(Position p_playerPosition)
+	{
+		this.playerPosition = p_playerPosition;
+	}
+	
 	
 	public Player getPlayer()
 	{
@@ -67,6 +83,11 @@ public class Map {
 	public MovableItem getMovableContentAt(Position p_position)
 	{
 		return this.map[p_position.getX()][p_position.getY()].getMovableContent();
+	}
+	
+	public FixedItem getFixedContentAt(Position p_position)
+	{
+		return this.map[p_position.getX()][p_position.getY()].getFixedContent();
 	}
 	
 	public void setMovableContentAt(Position p_position, MovableItem p_movableItem)
