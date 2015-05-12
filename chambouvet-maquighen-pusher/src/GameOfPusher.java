@@ -12,6 +12,8 @@ public class GameOfPusher
 	 */
 	private Map map;
 	
+	private Position playerPosition;
+	
 	/**
 	 * Creation of a new pusher game
 	 * with an initialized map

@@ -22,58 +22,14 @@ public class Map {
 	
 	/**
 	 * Unique map builder
+	 * @param fixedContentOfTheMap map content
 	 */
-	public Map()
+	public Map(Square[][] squares)
 	{
-		this.numberOfColumns = 8;
-		this.numberOfRows = 9;
+		this.numberOfRows = squares.length;
+		this.numberOfColumns = squares[0].length;
+		this.map = squares;
 		
-		this.map = new Square[this.numberOfRows][this.numberOfColumns];
-		
-		
-		char[][] fixedContentOfTheMap = 
-		{{' ', ' ', 'X', 'X', 'X', 'X', 'X', ' '},
-		 {'X', 'X', 'X', ' ', ' ', ' ', 'X', ' '},
-		 {'X', '1', ' ', ' ', ' ', ' ', 'X', ' '},
-		 {'X', 'X', 'X', ' ', ' ', '2', 'X', ' '},
-		 {'X', '7', 'X', 'X', ' ', ' ', 'X', ' '},
-		 {'X', ' ', 'X', ' ', '3', ' ', 'X', 'X'},
-	     {'X', ' ', ' ', '6', ' ', ' ', '4', 'X'},
-		 {'X', ' ', ' ', ' ', '5', ' ', ' ', 'X'},
-		 {'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'}
-		};
-		
-		
-		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
-		{
-			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
-			{
-				if (Character.isDigit(fixedContentOfTheMap[rowNumber][columnNumber]))
-				{
-					this.map[rowNumber][columnNumber] = new Square(new Exit(Character.getNumericValue(fixedContentOfTheMap[rowNumber][columnNumber])));
-				}
-				else if (fixedContentOfTheMap[rowNumber][columnNumber] == ' ')
-				{
-					this.map[rowNumber][columnNumber] = new Square(null);
-				}
-				else if (fixedContentOfTheMap[rowNumber][columnNumber] == 'X')
-				{
-					this.map[rowNumber][columnNumber] = new Square(new Wall());
-				}
-			}
-		}
-		
-		this.map[2][1].setMovableContent(new Player());
-		
-		this.map[2][3].setMovableContent(new Box(1));
-		this.map[3][4].setMovableContent(new Box(2));
-		this.map[4][4].setMovableContent(new Box(3));
-		this.map[6][5].setMovableContent(new Box(4));
-		this.map[6][4].setMovableContent(new Box(5));
-		this.map[6][3].setMovableContent(new Box(6));
-		this.map[6][1].setMovableContent(new Box(7));
-		
-		System.out.println(this.getPlayerPosition());
 	}
 
 	
@@ -161,6 +117,61 @@ public class Map {
 		}
 		
 		return aRetourner;
+	}
+
+/*
+	public static Square[] (String stringToParse)
+	{
+		
+	}*/
+	
+	public static Map parseMap(String fixedContentOfTheMap) {
+		
+		
+		String lines[] =  fixedContentOfTheMap.split("\n");
+		
+
+		
+		
+		for (int currentItem = 0; currentItem < fixedContentOfTheMap.split("\n").length; currentItem++)
+		{
+			String cases[] = lines[currentItem].split(";");
+			
+
+		}
+		
+		
+			
+		
+		/*
+		this.numberOfColumns = fixedContentOfTheMap[0].length;
+		this.numberOfRows = fixedContentOfTheMap.length;
+		
+		this.map = new Square[this.numberOfRows][this.numberOfColumns];
+			
+		
+		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
+		{
+			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
+			{
+				if (Character.isDigit(fixedContentOfTheMap[rowNumber][columnNumber]))
+				{
+					this.map[rowNumber][columnNumber] = new Square(new Exit(Character.getNumericValue(fixedContentOfTheMap[rowNumber][columnNumber])));
+				}
+				else if (fixedContentOfTheMap[rowNumber][columnNumber] == ' ')
+				{
+					this.map[rowNumber][columnNumber] = new Square(null);
+				}
+				else if (fixedContentOfTheMap[rowNumber][columnNumber] == 'X')
+				{
+					this.map[rowNumber][columnNumber] = new Square(new Wall());
+				}
+			}
+		}*/
+		
+		Square[][] squares = null;
+		return new Map(squares);
+		
 	}
 
 }
