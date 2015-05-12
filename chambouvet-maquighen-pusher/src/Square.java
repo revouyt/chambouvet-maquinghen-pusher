@@ -22,9 +22,10 @@ public class Square
 	 * @param p_fixedItem the initial state of the square
 	 * @param p_movableItem 
 	 */
-	public Square(FixedItem p_fixedItem)
+	public Square(FixedItem p_fixedItem, MovableItem p_movableItem)
 	{
 		this.fixedContent = p_fixedItem;
+		this.movableContent = p_movableItem;
 	}
 	
 	public FixedItem getFixedContent()

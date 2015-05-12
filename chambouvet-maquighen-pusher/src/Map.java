@@ -127,49 +127,68 @@ public class Map {
 	
 	public static Map parseMap(String fixedContentOfTheMap) {
 		
+		int numberOfRows = fixedContentOfTheMap.split("\n").length;
+		int numberOfColumns = fixedContentOfTheMap.split("\n")[0].split(";").length;
+		
+		Square[][] squares = new Square[numberOfRows][numberOfColumns];
+		
 		
 		String lines[] =  fixedContentOfTheMap.split("\n");
 		
 
-		
-		
-		for (int currentItem = 0; currentItem < fixedContentOfTheMap.split("\n").length; currentItem++)
+		for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
 		{
-			String cases[] = lines[currentItem].split(";");
+			String cases[] = lines[currentRow].split(";");
+			
+			for (int currentColumn = 0; currentColumn < numberOfColumns; currentColumn++)
+			{
+				char fixedItemChar = cases[currentColumn].split(",")[0].charAt(1);
+				char movableItemChar = cases[currentColumn].split(",")[1].charAt(0);
+				
+				FixedItem fixedItem = null;
+				MovableItem movableItem = null;
+				
+				
+				
+				if (Character.isDigit(fixedItemChar))
+				{
+					fixedItem = new Exit(Character.getNumericValue(fixedItemChar));
+				}
+				else if (fixedItemChar == 'f')
+				{
+					fixedItem = null;
+				}
+				else if (fixedItemChar == 'w')
+				{
+					fixedItem = new Wall();
+				}
+				
+				
+				if (Character.isDigit(movableItemChar))
+				{
+					movableItem = new Box(Character.getNumericValue(movableItemChar));
+				}
+				else if (movableItemChar == '-')
+				{
+					movableItem = null;
+				}
+				else if (movableItemChar == 'p')
+				{
+					movableItem = new Player();
+				}
+
+
+				squares[currentRow][currentColumn] = new Square(fixedItem, movableItem);
+
+						
+			}
 			
 
 		}
 		
 		
-			
 		
-		/*
-		this.numberOfColumns = fixedContentOfTheMap[0].length;
-		this.numberOfRows = fixedContentOfTheMap.length;
-		
-		this.map = new Square[this.numberOfRows][this.numberOfColumns];
-			
-		
-		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
-		{
-			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
-			{
-				if (Character.isDigit(fixedContentOfTheMap[rowNumber][columnNumber]))
-				{
-					this.map[rowNumber][columnNumber] = new Square(new Exit(Character.getNumericValue(fixedContentOfTheMap[rowNumber][columnNumber])));
-				}
-				else if (fixedContentOfTheMap[rowNumber][columnNumber] == ' ')
-				{
-					this.map[rowNumber][columnNumber] = new Square(null);
-				}
-				else if (fixedContentOfTheMap[rowNumber][columnNumber] == 'X')
-				{
-					this.map[rowNumber][columnNumber] = new Square(new Wall());
-				}
-			}
-		}*/
-		
-		Square[][] squares = null;
+
 		return new Map(squares);
 		
 	}
