@@ -12,4 +12,9 @@ public class Exit extends FixedItem
 	{
 		this.exitNumber = p_exitNumber;
 	}
+	
+	public int getExitNumber()
+	{
+		return this.exitNumber;
+	}
 }

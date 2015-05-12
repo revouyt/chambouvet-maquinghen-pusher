@@ -12,4 +12,9 @@ public class Box extends MovableItem
 	{
 		this.boxNumber = p_boxNumber;
 	}
+	
+	public int getNumber()
+	{
+		return this.boxNumber;
+	}
 }
