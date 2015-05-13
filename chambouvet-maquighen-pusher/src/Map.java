@@ -174,5 +174,35 @@ public class Map {
 		return squares;
 			
 	}
+	
+	
+	public boolean areAllBoxesOnExit()
+	{
+		for (int currentRow = 0; currentRow < this.numberOfRows; currentRow++)
+		{
+			for (int currentColumn = 0; currentColumn < this.numberOfColumns; currentColumn++)
+			{
+				FixedItem fixedCurrentSquareContent = this.map[currentRow][currentColumn].getFixedContent();
+				MovableItem movableCurrentSquareContent = this.map[currentRow][currentColumn].getMovableContent();
+				
+				if (fixedCurrentSquareContent instanceof Exit)
+				{
+					if (!(movableCurrentSquareContent instanceof Box))
+					{
+						return false;
+					}
+					else if (movableCurrentSquareContent instanceof Box) 
+					{
+						if (((Box) movableCurrentSquareContent).getNumber() != ((Exit)fixedCurrentSquareContent).getExitNumber())
+						{
+							return false;
+						}
+					}
+				}
+			}
+		}
+		
+		return true;
+	}
 
 }

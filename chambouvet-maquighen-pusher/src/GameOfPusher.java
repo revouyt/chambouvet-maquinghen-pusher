@@ -38,20 +38,47 @@ public class GameOfPusher
 	/**
 	 * Start the game
 	 */
-	public void jouer()
+	public boolean jouer()
 	{
+		Direction directionToGo;
+		
 		boolean isFinished = false;
 		while(!isFinished)
 		{
 
 			this.displayConsole.displayMap(this.map);
-			this.moveTo(this.playerConsole.getDirectionToGo());
+			this.displayConsole.displayDirectionChoice();
+			
+			directionToGo = this.playerConsole.getDirectionToGo();
+			
+			if (directionToGo == null)
+			{				
+				this.displayConsole.displayGiveUpMessage();
+				return false;
+			}
+			else
+			{
+				this.moveTo(directionToGo);
+			}
+				
+			
+			if (this.map.areAllBoxesOnExit())
+			{
+				this.displayConsole.displayMap(this.map);
+				this.displayConsole.displayVictoryMessage();
+				return true;
+			}
+
 		}
+		
+		return false;
 	}
 	
 	
 	public boolean moveTo(Direction p_direction)
 	{
+		
+		
 		Position playerPosition = this.map.getPlayerPosition();
 		
 		if (p_direction == Direction.RIGHT)

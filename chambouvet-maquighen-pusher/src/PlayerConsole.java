@@ -8,16 +8,15 @@ public class PlayerConsole
 	{
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir une direction parmis h,b,g,d :");
 		String str = sc.nextLine();
 		
 		if (str.equals("d"))
 			return Direction.RIGHT;
-		else if (str.equals("g"))
+		else if (str.equals("q"))
 			 return Direction.LEFT;
-		else if (str.equals("h"))
+		else if (str.equals("z"))
 			return Direction.UP;
-		else if (str.equals("b"))
+		else if (str.equals("s"))
 			return Direction.DOWN;
 		
 		return null;
