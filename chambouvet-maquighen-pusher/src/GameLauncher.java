@@ -11,7 +11,7 @@ public class GameLauncher {
 		String fixedContentOfTheMap = "";
 		fixedContentOfTheMap += "[f,-];[f,-];[w,-];[w,-];[w,-];[w,-];[w,-];[f,-]\n";
 		fixedContentOfTheMap += "[w,-];[w,-];[w,-];[f,-];[f,-];[f,-];[w,-];[f,-]\n";
-		fixedContentOfTheMap += "[w,-];[1,-];[f,-];[f,1];[f,-];[f,-];[w,-];[f,-]\n";
+		fixedContentOfTheMap += "[w,-];[1,p];[f,-];[f,1];[f,-];[f,-];[w,-];[f,-]\n";
 		fixedContentOfTheMap += "[w,-];[w,-];[w,-];[f,-];[f,2];[2,-];[w,-];[f,-]\n";
 		fixedContentOfTheMap += "[w,-];[7,-];[w,-];[w,-];[f,3];[f,-];[w,-];[f,-]\n";
 		fixedContentOfTheMap += "[w,-];[f,-];[w,-];[f,-];[3,-];[f,-];[w,-];[w,-]\n";
@@ -20,8 +20,7 @@ public class GameLauncher {
 		fixedContentOfTheMap += "[w,-];[w,-];[w,-];[w,-];[w,-];[w,-];[w,-];[w,-]\n";
 			
 		Map map = Map.parseMap(fixedContentOfTheMap);
-		System.out.println(map);
-		//new GameOfPusher(map).jouer();
+		new GameOfPusher(map).jouer();
 	}
 
 }

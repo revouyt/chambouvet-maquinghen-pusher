@@ -1,4 +1,3 @@
-
 /**
  * This class represents a grid where a Pusher game is played
  * @author chamboug
@@ -20,6 +19,9 @@ public class Map {
 	 */
 	private final Square[][] map;
 	
+	
+	private Position playerPosition;
+	
 	/**
 	 * Unique map builder
 	 * @param fixedContentOfTheMap map content
@@ -30,11 +32,13 @@ public class Map {
 		this.numberOfColumns = squares[0].length;
 		this.map = squares;
 		
+		this.playerPosition = this.searchPlayerPosition();
+		
 	}
 
 	
 	
-	public Position getPlayerPosition() 
+	private Position searchPlayerPosition() 
 	{
 
 		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
@@ -49,6 +53,17 @@ public class Map {
 		return null;
 		
 	}
+	
+	public Position getPlayerPosition()
+	{
+		return this.playerPosition;
+	}
+	
+	public void setPlayerPosition(Position p_playerPosition)
+	{
+		this.playerPosition = p_playerPosition;
+	}
+	
 	
 	public Player getPlayer()
 	{
@@ -67,6 +82,11 @@ public class Map {
 	public MovableItem getMovableContentAt(Position p_position)
 	{
 		return this.map[p_position.getX()][p_position.getY()].getMovableContent();
+	}
+	
+	public FixedItem getFixedContentAt(Position p_position)
+	{
+		return this.map[p_position.getX()][p_position.getY()].getFixedContent();
 	}
 	
 	public void setMovableContentAt(Position p_position, MovableItem p_movableItem)
@@ -127,51 +147,33 @@ public class Map {
 	
 	public static Map parseMap(String fixedContentOfTheMap) {
 		
+		int numberOfRows = fixedContentOfTheMap.split("\n").length;
+		// int numberOfColumns = fixedContentOfTheMap.split("\n")[0].split(";").length;
+		
+		Square[][] squares = new Square[numberOfRows][];
+		
 		
 		String lines[] =  fixedContentOfTheMap.split("\n");
 		
 
+		for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
+			squares[currentRow] = parseMapRow(lines[currentRow]);
 		
-		
-		for (int currentItem = 0; currentItem < fixedContentOfTheMap.split("\n").length; currentItem++)
-		{
-			String cases[] = lines[currentItem].split(";");
-			
-
-		}
-		
-		
-			
-		
-		/*
-		this.numberOfColumns = fixedContentOfTheMap[0].length;
-		this.numberOfRows = fixedContentOfTheMap.length;
-		
-		this.map = new Square[this.numberOfRows][this.numberOfColumns];
-			
-		
-		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
-		{
-			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
-			{
-				if (Character.isDigit(fixedContentOfTheMap[rowNumber][columnNumber]))
-				{
-					this.map[rowNumber][columnNumber] = new Square(new Exit(Character.getNumericValue(fixedContentOfTheMap[rowNumber][columnNumber])));
-				}
-				else if (fixedContentOfTheMap[rowNumber][columnNumber] == ' ')
-				{
-					this.map[rowNumber][columnNumber] = new Square(null);
-				}
-				else if (fixedContentOfTheMap[rowNumber][columnNumber] == 'X')
-				{
-					this.map[rowNumber][columnNumber] = new Square(new Wall());
-				}
-			}
-		}*/
-		
-		Square[][] squares = null;
 		return new Map(squares);
 		
+	}
+
+
+
+	private static Square[] parseMapRow(String rowAscii) {
+		
+		String cellsAscii[] = rowAscii.split(";");
+		Square[] squares = new Square[cellsAscii.length];
+		
+		for (int currentColumn = 0; currentColumn < squares.length; currentColumn++)
+			squares[currentColumn] = Square.parseSquare(cellsAscii[currentColumn]);
+		return squares;
+			
 	}
 
 }
