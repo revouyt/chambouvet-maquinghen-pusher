@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 
 
@@ -17,7 +19,6 @@ public class GameOfPusher
 	private PlayerConsole playerConsole;
 	
 	private DisplayConsole displayConsole;
-	
 	
 	/**
 	 * Creation of a new pusher game
@@ -42,10 +43,12 @@ public class GameOfPusher
 		boolean isFinished = false;
 		while(!isFinished)
 		{
+
 			this.displayConsole.displayMap(this.map);
 			this.moveTo(this.playerConsole.getDirectionToGo());
 		}
 	}
+	
 	
 	public boolean moveTo(Direction p_direction)
 	{

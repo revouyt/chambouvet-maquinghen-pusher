@@ -152,7 +152,6 @@ public class Map {
 		
 		Square[][] squares = new Square[numberOfRows][];
 		
-		
 		String lines[] =  fixedContentOfTheMap.split("\n");
 		
 
