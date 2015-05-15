@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class PlayerConsole 
 {
 	
+	/**
+	 * get a direction by listening a keyboard entry
+	 * @return
+	 */
 	public Direction getDirectionToGo()
 	{
 		
