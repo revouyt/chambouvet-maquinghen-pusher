@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 
 /**
  * Create a pusher game
@@ -82,7 +80,7 @@ public class GameOfPusher
 	/**
 	 * move a movable item into a direction
 	 * @param p_direction
-	 * @return
+	 * @return if their was a deplacement or not
 	 */
 	public boolean moveTo(Direction p_direction)
 	{
