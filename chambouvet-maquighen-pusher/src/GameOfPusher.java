@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 
-
-
 /**
  * Create a pusher game
  * @author chamboug
@@ -16,8 +14,14 @@ public class GameOfPusher
 	 */
 	private Map map;
 	
+	/**
+	 * console player
+	 */
 	private PlayerConsole playerConsole;
 	
+	/**
+	 * display console information
+	 */
 	private DisplayConsole displayConsole;
 	
 	/**
@@ -75,6 +79,11 @@ public class GameOfPusher
 	}
 	
 	
+	/**
+	 * move a movable item into a direction
+	 * @param p_direction
+	 * @return
+	 */
 	public boolean moveTo(Direction p_direction)
 	{
 		
