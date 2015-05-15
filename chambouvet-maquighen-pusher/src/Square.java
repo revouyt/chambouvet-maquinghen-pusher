@@ -26,21 +26,38 @@ public class Square
 		this.movableContent = p_movableItem;
 	}
 	
+	/**
+	 * get current fixed content
+	 * @return fixedContent
+	 */
 	public FixedItem getFixedContent()
 	{
 		return this.fixedContent;
 	}
 
+	/**
+	 * set movable content
+	 * @param p_movableItem
+	 */
 	public void setMovableContent(MovableItem p_movableItem)
 	{
 		this.movableContent = p_movableItem;
 	}
 	
+	/**
+	 * get current movable content
+	 * @return movableContent
+	 */
 	public MovableItem getMovableContent()
 	{
 		return this.movableContent;
 	}
 
+	/**
+	 * create fixed and movable items of a square by interpreting its associated character
+	 * @param squareAscii
+	 * @return Square
+	 */
 	public static Square parseSquare(String squareAscii) {
 		String[] tokens = squareAscii.split(",");
 		
