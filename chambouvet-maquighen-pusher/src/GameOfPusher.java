@@ -27,12 +27,12 @@ public class GameOfPusher
 	 * with an initialized map
 	 * @param p_map the map to be used
 	 */
-	public GameOfPusher(Map p_map)
+	public GameOfPusher(Map p_map, PlayerEntry p_playerEntry, PlayerDisplay p_playerDisplay)
 	{
 		this.map = p_map;
 		
-		this.playerEntry = new EntryConsole();
-		this.playerDisplay = new DisplayConsole();
+		this.playerEntry = p_playerEntry;
+		this.playerDisplay = p_playerDisplay;
 		
 	}
 	
