@@ -1,4 +1,3 @@
-import java.util.Collection;
 import java.util.Collections;
 
 
@@ -50,12 +49,12 @@ public class GameOfPusher
 		boolean isFinished = false;
 		while(!isFinished)
 		{
-			this.playerDisplay.displayMap(this.map);
+			this.playerDisplay.displayMap(this.map.toString());
 			this.playerDisplay.displayDirectionChoice();
 			this.playerDisplay.displayHowToGiveUpMessage();
 			
 			directionToGo = this.playerEntry.getDirectionToGo();
-			
+
 			if (directionToGo == null)
 			{				
 				this.playerDisplay.displayGiveUpMessage();
@@ -69,7 +68,7 @@ public class GameOfPusher
 			
 			if (this.map.areAllBoxesOnExit())
 			{
-				this.playerDisplay.displayMap(this.map);
+				this.playerDisplay.displayMap(this.map.toString());
 				this.playerDisplay.displayVictoryMessage();
 				return true;
 			}

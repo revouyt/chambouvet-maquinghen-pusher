@@ -20,6 +20,9 @@ public class Map {
 	private final Square[][] map;
 	
 	
+	/**
+	 * Current player position
+	 */
 	private Position playerPosition;
 	
 	
@@ -76,6 +79,34 @@ public class Map {
 	public void setPlayerPosition(Position p_playerPosition)
 	{
 		this.playerPosition = p_playerPosition;
+	}
+	
+	/**
+	 * Return number of columns
+	 * @return number of columns
+	 */
+	public int getNumberOfColumns()
+	{
+		return this.numberOfColumns;
+	}
+	
+	/**
+	 * Return number of rows
+	 * @return numberOfRows
+	 */
+	public int getNumberOfRows()
+	{
+		return this.numberOfRows;
+	}
+	
+	/**
+	 * Return the quare at the given position
+	 * @param p_position the position to search
+	 * @return square at the position
+	 */
+	public Square getSquareAt(Position p_position)
+	{
+		return this.map[p_position.getX()][p_position.getY()];
 	}
 	
 	
@@ -139,7 +170,9 @@ public class Map {
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
 			{
 				toReturn += this.map[rowNumber][columnNumber];
+				if (columnNumber < this.numberOfColumns-1) toReturn+=";";
 			}
+			toReturn += "\n";
 		}
 		
 		return toReturn;

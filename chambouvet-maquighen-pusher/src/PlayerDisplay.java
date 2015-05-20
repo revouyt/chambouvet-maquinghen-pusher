@@ -10,7 +10,7 @@ public interface PlayerDisplay
 	
 	public void displayDirectionChoice();
 
-	public void displayMap(Map mapToDisplay);
+	public void displayMap(String formattedMap);
 
 	public void displayVictoryMessage();
 	
