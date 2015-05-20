@@ -12,8 +12,8 @@ public class Box extends MovableItem
 	private int boxNumber;
 	
 	/**
-	 * 
-	 * @param p_boxNumber
+	 * Return a new box ready to be used
+	 * @param p_boxNumber number of the new box
 	 */
 	public Box (int p_boxNumber)
 	{

@@ -6,6 +6,10 @@
  */
 public class GameLauncher {
 
+	/**
+	 * Entry point of the application
+	 * @param args (N/A)
+	 */
 	public static void main(String[] args) {
 		
 		String fixedContentOfTheMap = "";
@@ -22,7 +26,7 @@ public class GameLauncher {
 		Map map = Map.parseMap(fixedContentOfTheMap);
 
 		
-		new GameOfPusher(map, new EntryRandom(), new DisplayConsole()).play();
+		new GameOfPusher(map, new EntryConsole(), new DisplayConsole()).play();
 	}
 
 }
