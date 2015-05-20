@@ -1,4 +1,7 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 
 /**
@@ -12,10 +15,18 @@ public class EntryConsole implements PlayerEntry
 
 	public Direction getDirectionToGo()
 	{
-		
-		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
-		
+	    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	    
+	    String str = "";
+		try
+		{
+			str = bufferedReader.readLine();
+		} catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+	    
+
 		if (str.equals("d"))
 			return Direction.RIGHT;
 		else if (str.equals("q"))
