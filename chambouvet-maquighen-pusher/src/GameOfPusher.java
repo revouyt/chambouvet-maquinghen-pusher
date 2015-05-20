@@ -15,12 +15,12 @@ public class GameOfPusher
 	/**
 	 * console player
 	 */
-	private PlayerConsole playerConsole;
+	private PlayerEntry playerEntry;
 	
 	/**
 	 * display console information
 	 */
-	private DisplayConsole displayConsole;
+	private PlayerDisplay playerDisplay;
 	
 	/**
 	 * Creation of a new pusher game
@@ -31,8 +31,8 @@ public class GameOfPusher
 	{
 		this.map = p_map;
 		
-		this.playerConsole = new PlayerConsole();
-		this.displayConsole = new DisplayConsole();
+		this.playerEntry = new EntryConsole();
+		this.playerDisplay = new DisplayConsole();
 		
 	}
 	
@@ -40,7 +40,7 @@ public class GameOfPusher
 	/**
 	 * Start the game
 	 */
-	public boolean jouer()
+	public boolean play()
 	{
 		Direction directionToGo;
 		
@@ -48,14 +48,15 @@ public class GameOfPusher
 		while(!isFinished)
 		{
 
-			this.displayConsole.displayMap(this.map);
-			this.displayConsole.displayDirectionChoice();
+			this.playerDisplay.displayMap(this.map);
+			this.playerDisplay.displayDirectionChoice();
+			this.playerDisplay.displayHowToGiveUpMessage();
 			
-			directionToGo = this.playerConsole.getDirectionToGo();
+			directionToGo = this.playerEntry.getDirectionToGo();
 			
 			if (directionToGo == null)
 			{				
-				this.displayConsole.displayGiveUpMessage();
+				this.playerDisplay.displayGiveUpMessage();
 				return false;
 			}
 			else
@@ -66,8 +67,8 @@ public class GameOfPusher
 			
 			if (this.map.areAllBoxesOnExit())
 			{
-				this.displayConsole.displayMap(this.map);
-				this.displayConsole.displayVictoryMessage();
+				this.playerDisplay.displayMap(this.map);
+				this.playerDisplay.displayVictoryMessage();
 				return true;
 			}
 
@@ -212,6 +213,10 @@ public class GameOfPusher
 			
 			
 			
+		}
+		else
+		{
+			this.playerDisplay.displayInvalidDirectionMessage();
 		}
 		
 		return false;

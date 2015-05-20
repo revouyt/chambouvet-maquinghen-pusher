@@ -23,5 +23,10 @@ public enum Direction
 	/**
 	 * Go down
 	 */
-	DOWN
+	DOWN,
+	
+	/**
+	 * For invalid direction
+	 */
+	NOWHERE
 }
