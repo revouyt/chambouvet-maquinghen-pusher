@@ -17,8 +17,8 @@ public class Square
 	
 	/**
 	 * Creation of a square
-	 * @param p_fixedItem the initial state of the square
-	 * @param p_movableItem 
+	 * @param p_fixedItem the initial fixed item in the square
+	 * @param p_movableItem the initial movable item on the square
 	 */
 	public Square(FixedItem p_fixedItem, MovableItem p_movableItem)
 	{
@@ -37,7 +37,7 @@ public class Square
 
 	/**
 	 * set movable content
-	 * @param p_movableItem
+	 * @param p_movableItem the new movable item
 	 */
 	public void setMovableContent(MovableItem p_movableItem)
 	{
@@ -55,8 +55,8 @@ public class Square
 
 	/**
 	 * create fixed and movable items of a square by interpreting its associated character
-	 * @param squareAscii
-	 * @return Square
+	 * @param squareAscii the ascii form of the square
+	 * @return Square quare created from the formatted text
 	 */
 	public static Square parseSquare(String squareAscii) {
 		String[] tokens = squareAscii.split(",");

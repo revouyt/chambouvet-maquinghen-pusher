@@ -1,4 +1,4 @@
-import java.util.Collections;
+
 
 
 /**
@@ -28,6 +28,8 @@ public class GameOfPusher
 	 * Creation of a new pusher game
 	 * with an initialized map
 	 * @param p_map the map to be used
+	 * @param p_playerEntry the player entry interface
+	 * @param p_playerDisplay the player display interface
 	 */
 	public GameOfPusher(Map p_map, PlayerEntry p_playerEntry, PlayerDisplay p_playerDisplay)
 	{
@@ -44,7 +46,6 @@ public class GameOfPusher
 	 */
 	public boolean play()
 	{
-		Direction directionToGo;
 		
 		boolean isFinished = false;
 		while(!isFinished)
@@ -53,7 +54,7 @@ public class GameOfPusher
 			this.playerDisplay.displayDirectionChoice();
 			this.playerDisplay.displayHowToGiveUpMessage();
 			
-			directionToGo = this.playerEntry.getDirectionToGo();
+			Direction directionToGo = this.playerEntry.getDirectionToGo();
 
 			if (directionToGo == null)
 			{				
@@ -81,8 +82,8 @@ public class GameOfPusher
 	
 	/**
 	 * move a movable item into a direction
-	 * @param p_direction
-	 * @return if their was a deplacement or not
+	 * @param p_direction direction to go
+	 * @return if their was a move or not
 	 */
 	public boolean moveTo(Direction p_direction)
 	{

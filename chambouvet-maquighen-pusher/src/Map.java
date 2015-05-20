@@ -74,7 +74,7 @@ public class Map {
 	
 	/**
 	 * Change the player's position field
-	 * @param p_playerPosition
+	 * @param p_playerPosition new player position
 	 */
 	public void setPlayerPosition(Position p_playerPosition)
 	{
