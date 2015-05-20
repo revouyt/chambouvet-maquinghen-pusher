@@ -99,4 +99,29 @@ public class Square
 
 	}
 	
+	public String toString()
+	{
+		String toReturn = "[";
+		
+		if (this.getFixedContent() == null)
+			toReturn += "f";
+		else if (this.getFixedContent() instanceof Wall)
+			toReturn += "w";
+		else if (this.getFixedContent() instanceof Exit)
+			toReturn += ((Exit)this.getFixedContent()).getExitNumber();
+		
+		toReturn += ",";
+		
+		if (this.getMovableContent() == null)
+			toReturn += "-";
+		else if (this.getMovableContent() instanceof Player)
+			toReturn += "p";
+		else if (this.getMovableContent() instanceof Box)
+			toReturn += ((Box)this.getMovableContent()).getNumber();
+		
+		toReturn += "]";
+		
+		return toReturn;
+	}
+	
 }

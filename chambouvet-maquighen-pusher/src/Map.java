@@ -22,6 +22,7 @@ public class Map {
 	
 	private Position playerPosition;
 	
+	
 	/**
 	 * Return a new map ready to play
 	 * @param squares which composes the map
@@ -133,42 +134,12 @@ public class Map {
 	{
 		String toReturn = "";
 
-			for (int columnNumber = 0; columnNumber < this.numberOfColumns * 5; columnNumber++)
-			{
-				toReturn += "-";
-			}
-			toReturn += "\n";
-
-
-
-		
 		for (int rowNumber = 0; rowNumber < this.numberOfRows; rowNumber++)
 		{
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
 			{
-				if (this.map[rowNumber][columnNumber].getFixedContent() == null)
-					toReturn += "  ";
-				else if (this.map[rowNumber][columnNumber].getFixedContent() instanceof Wall)
-					toReturn += " X";
-				else if (this.map[rowNumber][columnNumber].getFixedContent() instanceof Exit)
-					toReturn += "E" + ((Exit)this.map[rowNumber][columnNumber].getFixedContent()).getExitNumber();
-				
-				if (this.map[rowNumber][columnNumber].getMovableContent() == null)
-					toReturn += "  ";
-				else if (this.map[rowNumber][columnNumber].getMovableContent() instanceof Player)
-					toReturn += " P";
-				else if (this.map[rowNumber][columnNumber].getMovableContent() instanceof Box)
-					toReturn += "B" + ((Box)this.map[rowNumber][columnNumber].getMovableContent()).getNumber();
-				
-				toReturn += "|";
+				toReturn += this.map[rowNumber][columnNumber];
 			}
-			
-			toReturn += "\n";
-			for (int columnNumber = 0; columnNumber < this.numberOfColumns * 5; columnNumber++)
-			{
-				toReturn += "-";
-			}
-			toReturn += "\n";
 		}
 		
 		return toReturn;
