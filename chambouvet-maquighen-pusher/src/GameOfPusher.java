@@ -1,3 +1,6 @@
+import java.util.Collection;
+import java.util.Collections;
+
 
 /**
  * Create a pusher game
@@ -47,7 +50,6 @@ public class GameOfPusher
 		boolean isFinished = false;
 		while(!isFinished)
 		{
-
 			this.playerDisplay.displayMap(this.map);
 			this.playerDisplay.displayDirectionChoice();
 			this.playerDisplay.displayHowToGiveUpMessage();

@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
 
+/**
+ * To ask the player in the console
+ * @author chamboug
+ *
+ */
 public class EntryConsole implements PlayerEntry
 {
 	
-	/**
-	 * get a direction by listening a keyboard entry
-	 * @return
-	 */
+
 	public Direction getDirectionToGo()
 	{
 		

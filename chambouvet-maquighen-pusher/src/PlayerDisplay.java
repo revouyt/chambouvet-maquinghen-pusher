@@ -1,4 +1,9 @@
 
+/**
+ * display message interface
+ * @author chamboug
+ *
+ */
 public interface PlayerDisplay
 {
 

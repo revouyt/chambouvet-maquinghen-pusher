@@ -23,8 +23,8 @@ public class Map {
 	private Position playerPosition;
 	
 	/**
-	 * Unique map builder
-	 * @param fixedContentOfTheMap map content
+	 * Return a new map ready to play
+	 * @param squares which composes the map
 	 */
 	public Map(Square[][] squares)
 	{

@@ -1,4 +1,9 @@
 
+/**
+ * Display messages in the console
+ * @author chamboug
+ *
+ */
 public class DisplayConsole implements PlayerDisplay
 {
 	public void displayDirectionChoice()
