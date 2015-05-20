@@ -44,7 +44,7 @@ public class GameOfPusher
 	/**
 	 * Start the game
 	 */
-	public boolean play()
+	public void play()
 	{
 		
 		boolean isFinished = false;
@@ -59,7 +59,7 @@ public class GameOfPusher
 			if (directionToGo == null)
 			{				
 				this.playerDisplay.displayGiveUpMessage();
-				return false;
+				return;
 			}
 			else
 			{
@@ -71,12 +71,11 @@ public class GameOfPusher
 			{
 				this.playerDisplay.displayMap(this.map.toString());
 				this.playerDisplay.displayVictoryMessage();
-				return true;
+				return;
 			}
 
 		}
 		
-		return false;
 	}
 	
 	
