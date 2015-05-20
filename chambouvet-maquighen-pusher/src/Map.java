@@ -131,13 +131,13 @@ public class Map {
 	
 	public String toString()
 	{
-		String aRetourner = "";
+		String toReturn = "";
 
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns * 5; columnNumber++)
 			{
-				aRetourner += "-";
+				toReturn += "-";
 			}
-			aRetourner += "\n";
+			toReturn += "\n";
 
 
 
@@ -147,31 +147,31 @@ public class Map {
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns; columnNumber++)
 			{
 				if (this.map[rowNumber][columnNumber].getFixedContent() == null)
-					aRetourner += "  ";
+					toReturn += "  ";
 				else if (this.map[rowNumber][columnNumber].getFixedContent() instanceof Wall)
-					aRetourner += " X";
+					toReturn += " X";
 				else if (this.map[rowNumber][columnNumber].getFixedContent() instanceof Exit)
-					aRetourner += "E" + ((Exit)this.map[rowNumber][columnNumber].getFixedContent()).getExitNumber();
+					toReturn += "E" + ((Exit)this.map[rowNumber][columnNumber].getFixedContent()).getExitNumber();
 				
 				if (this.map[rowNumber][columnNumber].getMovableContent() == null)
-					aRetourner += "  ";
+					toReturn += "  ";
 				else if (this.map[rowNumber][columnNumber].getMovableContent() instanceof Player)
-					aRetourner += " P";
+					toReturn += " P";
 				else if (this.map[rowNumber][columnNumber].getMovableContent() instanceof Box)
-					aRetourner += "B" + ((Box)this.map[rowNumber][columnNumber].getMovableContent()).getNumber();
+					toReturn += "B" + ((Box)this.map[rowNumber][columnNumber].getMovableContent()).getNumber();
 				
-				aRetourner += "|";
+				toReturn += "|";
 			}
 			
-			aRetourner += "\n";
+			toReturn += "\n";
 			for (int columnNumber = 0; columnNumber < this.numberOfColumns * 5; columnNumber++)
 			{
-				aRetourner += "-";
+				toReturn += "-";
 			}
-			aRetourner += "\n";
+			toReturn += "\n";
 		}
 		
-		return aRetourner;
+		return toReturn;
 	}
 
 

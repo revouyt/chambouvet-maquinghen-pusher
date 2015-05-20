@@ -21,7 +21,7 @@ public class GameLauncher {
 			
 		Map map = Map.parseMap(fixedContentOfTheMap);
 
-		new GameOfPusher(map).jouer();
+		new GameOfPusher(map).play();
 	}
 
 }
